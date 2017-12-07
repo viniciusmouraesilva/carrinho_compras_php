@@ -83,3 +83,46 @@ function excluir_do_carrinho_produto_zerado($id) {
 	unset($_SESSION['carrinho']["{$id}"]);
 	unset($_SESSION['qtd']["{$id}"]);		
 }
+
+function verificar_qtd_carrinho_inicio($id, $qtd_banco) {
+
+	if($qtd_banco <= 0) {
+		unset($_SESSION['carrinho']["{$id}"]);
+		unset($_SESSION['qtd']["{$id}"]);
+		return false;
+	}
+
+	$qtd_em_sessao = (int)$_SESSION['qtd']["{$id}"];
+
+	if($qtd_banco < $qtd_em_sessao) {
+
+		$diferenca = $qtd_banco - $qtd_em_sessao;
+
+		if($diferenca <= 0) {
+
+			$_SESSION['qtd']["{$id}"] = $qtd_banco;
+			return false;
+		}
+	}else {
+		return true;
+	}
+
+}
+
+function remover_item_carrinho($id) {
+
+	// fazer verificação se id costa na sessão também
+	$resu = verificar_novo_produto($id);
+
+	// false porque a função verificar é ligado
+	// a adição de novos produtos veja no inicio
+
+	if($resu == false) {
+		unset($_SESSION['carrinho']["{$id}"]);
+		unset($_SESSION['qtd']["{$id}"]);
+		return true;
+	}else {
+		return false;
+	}
+
+}

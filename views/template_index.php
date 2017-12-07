@@ -7,6 +7,14 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
+	<a href="index.php?route=carrinho">Carrinho</a>
+
+	<?php if(array_key_exists('carrinho',$_SESSION)): ?>
+		<?php print sizeof($_SESSION['carrinho']);?>
+	<?php else: ?>
+		<?php print '0'; ?> 
+	<?php endif; ?>
+
 	<!-- Section Livros-->
 	<section class="livros">
 
