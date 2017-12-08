@@ -126,3 +126,42 @@ function remover_item_carrinho($id) {
 	}
 
 }
+
+function verificar_qtd_digitada($qtd_total_atual_banco, $id, $qtd_digitada) {
+
+	// se for 0 a quantidade deve ser removido do carrinho
+	if($qtd_total_atual_banco <= 0) {
+		unset($_SESSION['carrinho']["{$id}"]);
+		unset($_SESSION['qtd']["{$id}"]);
+		return false;
+	}
+
+	# agora se for menor mas não for zero 
+	# o prouto fica com a quantidade do banco 
+	if($qtd_total_atual_banco < $qtd_digitada) {
+
+		$diferenca = $qtd_total_atual_banco - $qtd_em_session;
+
+		// se a difirenca for menor ou igual a zero 
+		// a quantidade do produto fica com o total
+		// ecncontrado no banco
+
+		if($diferenca <= 0) {
+			$_SESSION['qtd']["{$id}"] = $qtd_total_atual_banco;
+			return false;
+		}
+
+	}elseif($qtd_total_atual_banco == $qtd_digitada) {
+		// se quantidade igual nada é feito
+		return false;
+
+	}else {
+		// se tiver a quantidade possível para
+		// adcionar é feti o o aumento
+
+		$_SESSION['qtd']["{$id}"] = $qtd_digitada;
+		return true;
+	}
+
+}
+
