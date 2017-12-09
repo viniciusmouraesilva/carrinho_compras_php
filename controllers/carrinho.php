@@ -99,25 +99,29 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists('adicionar',$_POST))
 						$quantidade = (int)$_POST['quantidade'];
 
 						if($quantidade > 0 && filter_var($quantidade,FILTER_VALIDATE_INT)) {
-
+									
 							// se existe no carrinho 
 							$existe = verificar_novo_produto($id);
 
 							if($existe == false) {
 
 								$qtd_banco = $repositorio_carrinho->devolverQuantidadeExistente($id);
-
+									
+								$validacao = false;
+									
+								if(is_array($qtd_banco)) {
+									$qtd_b = $qtd_banco['qtd'];
+									$validacao = verificar_qtd_digitada($qtd_b, $id, $quantidade);
+								}
+								
 								//verificar modificação da 
 								//quantidade do produto
-
-								$validacao = verificar_qtd_digitada($qtd_banco, $id, $quantidade);
-
 								if($validacao) {
 									header('Location:index.php?route=carrinho');
 									exit();
 								}else {
 
-									throw new Exception ('Não foi possível adicionar essa quantidade!.');
+									throw new Exception ('Não foi possível adicionar essa quantidade!');
 
 								}
 

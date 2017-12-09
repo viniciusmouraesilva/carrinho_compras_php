@@ -1,5 +1,5 @@
 <?php
-#rotas url válidas 
+#rotas de url válidas 
 function verificar_rota($rota) {
 
 	switch($rota) {
@@ -20,7 +20,7 @@ function verificar_rota($rota) {
 function verificar_novo_produto($id) {
 
 	$i = 0;
-
+	
 	foreach($_SESSION['carrinho'] as $id_carrinho) {
 
 		if($id == $id_carrinho) {
@@ -136,28 +136,15 @@ function verificar_qtd_digitada($qtd_total_atual_banco, $id, $qtd_digitada) {
 		return false;
 	}
 
-	# agora se for menor mas não for zero 
-	# o prouto fica com a quantidade do banco 
-	if($qtd_total_atual_banco < $qtd_digitada) {
-
-		$diferenca = $qtd_total_atual_banco - $qtd_em_session;
-
-		// se a difirenca for menor ou igual a zero 
-		// a quantidade do produto fica com o total
-		// ecncontrado no banco
-
-		if($diferenca <= 0) {
-			$_SESSION['qtd']["{$id}"] = $qtd_total_atual_banco;
-			return false;
-		}
-
-	}elseif($qtd_total_atual_banco == $qtd_digitada) {
-		// se quantidade igual nada é feito
+	if($qtd_digitada > $qtd_total_atual_banco) {
+		
+		$_SESSION['qtd']["{$id}"] = $qtd_total_atual_banco;
+		
 		return false;
-
-	}else {
+		
+	}elseif($qtd_digitada <= $qtd_total_atual_banco && $qtd_digitada > 0) {
 		// se tiver a quantidade possível para
-		// adcionar é feti o o aumento
+		// adcionar é feito o recebimnto da quantidade
 
 		$_SESSION['qtd']["{$id}"] = $qtd_digitada;
 		return true;

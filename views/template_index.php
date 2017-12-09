@@ -9,8 +9,12 @@
 <body>
 	<a href="index.php?route=carrinho">Carrinho</a>
 
-	<?php if(array_key_exists('carrinho',$_SESSION)): ?>
-		<?php print sizeof($_SESSION['carrinho']);?>
+	<?php if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)): ?>
+		<?php if($_SESSION['carrinho'] != null && $_SESSION['qtd'] != null): ?>
+			<?php print sizeof($_SESSION['carrinho']);?>
+		<?php else:  ?>
+			<?php print '0'; ?>
+		<?php endif ?>
 	<?php else: ?>
 		<?php print '0'; ?> 
 	<?php endif; ?>

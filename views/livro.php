@@ -15,9 +15,12 @@
 			<p><?php print $livro->getTitulo(); ?></p>
 			<p><?php print $livro->getSubtitulo(); ?></p>
 			<p>R$ <?php printf("%.2f",$livro->getPreco()); ?></p>
-
-			<p><a href="index.php?route=carrinho&id=<?php print $livro->getId(); ?>">Comprar</a></p>
-
+			
+			<form method="POST">
+				<input type="hidden" name="id" value="<?php print $livro->getId(); ?>">
+				<input type="submit" name="comprar" value="Comprar">
+			</form>
+			
 	</section>
 </body>
 </html>

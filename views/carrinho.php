@@ -9,8 +9,8 @@
 <body>
 	<p><a href="index.php?route=index">Voltar</a></p>
 
-	<?php if(!array_key_exists('carrinho',$_SESSION)): ?>
-		<p><?php print 'Nenhum produto no carrinho. :( '; ?></p>
+	<?php if(!array_key_exists('carrinho',$_SESSION) && !array_key_exists('qtd',$_SESSION)): ?>
+			<p><?php print 'Nenhum produto no carrinho. :( '; ?></p>
 	<?php endif; ?>
 
 	<?php if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)): ?>
@@ -44,9 +44,10 @@
 
 	<!-- total do carrinho -->
 	<?php if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)): ?>
-	
-		<?php if(array_key_exists('carrinho', $_SESSION)) : ?>
-				<p>Total: <?php printf("R$ %.2f",$total) ?></p>
+		<?php if($_SESSION['carrinho'] != null && $_SESSION['qtd'] != null): ?>
+			<?php if(array_key_exists('carrinho', $_SESSION)) : ?>
+					<p>Total: <?php printf("R$ %.2f",$total) ?></p>
+			<?php endif; ?>
 		<?php endif; ?>
 	<?php endif; ?>
 
