@@ -14,7 +14,7 @@
 
 			<p><?php print $livro->getTitulo(); ?></p>
 			<p><?php print $livro->getSubtitulo(); ?></p>
-			<p>R$ <?php printf("%.2f",$livro->getPreco()); ?></p>
+			<p>R$ <?php print number_format($livro->getPreco(),2,',',0); ?></p>
 			
 			<form method="POST">
 				<input type="hidden" name="id" value="<?php print $livro->getId(); ?>">

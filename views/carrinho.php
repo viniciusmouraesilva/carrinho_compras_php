@@ -23,7 +23,7 @@
 
 				<p>Quantidade: <?php print $_SESSION['qtd']["{$livro->getId()}"]; ?> </p>
 
-				<p> Total:  <?php printf("R$ %.2f", $livro->getPreco() * $_SESSION['qtd']["{$livro->getId()}"]); ?> </p>
+				<p> Total:  <?php print 'R$ '. number_format($livro->getPreco() * $_SESSION['qtd']["{$livro->getId()}"],2,',',0); ?> </p>
 
 				<!-- formulário com remoção e adiçao -->
 				<form method="POST">
@@ -46,7 +46,7 @@
 	<?php if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)): ?>
 		<?php if($_SESSION['carrinho'] != null && $_SESSION['qtd'] != null): ?>
 			<?php if(array_key_exists('carrinho', $_SESSION)) : ?>
-					<p>Total: <?php printf("R$ %.2f",$total) ?></p>
+					<p>Total: <?php print 'R$ '. number_format($total,2,',',0) ?></p>
 			<?php endif; ?>
 		<?php endif; ?>
 	<?php endif; ?>
