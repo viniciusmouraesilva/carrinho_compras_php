@@ -1,0 +1,40 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	background-color: #f1f1f1;
+}
+
+.area {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+}
+
+.area p {
+	font-family: arial, sans-serif, georgia, serif;
+	font-size: 1.3em;
+}
+
+.item {
+	display: flex;
+	flex-flow: row wrap;
+	width: 29%;
+	margin: 8px;
+}
+
+.form {
+	display: flex;
+	flex-flow: row wrap;
+	width: 100%;
+}
+
+.form input {
+	background-color: #A36464;
+	padding: 12px;
+	border: 2px solid black;
+	border-radius: 4px;
+	color: white;
+}
