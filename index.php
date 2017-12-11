@@ -15,7 +15,7 @@ if(array_key_exists('carrinho', $_SESSION) && array_key_exists('qtd', $_SESSION)
 
 $rota = 'index';
 
-print_r($_SESSION);
+//print_r($_SESSION);
 
 if(array_key_exists('route',$_GET)) {
 	$rota = (string)$_GET['route'];

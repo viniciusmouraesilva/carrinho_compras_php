@@ -7,25 +7,24 @@ body {
 	background-color: #f1f1f1;
 }
 
+/* cabeçalhos */
 h1 {
 	text-align: center;
 	font-family: 'Josefin Sans', arial, sans-serif, serif, georgia;
 }
 
-.area {
-	display: flex;
-	flex-flow: column wrap;
-	width: 100%;
-	margin: 15px;
+h2 {
+	text-align: center;
+	font-family: 'Josefin Sans', arial, sans-serif, serif, georgia;
 }
 
-/* header classe menu*/
+/* navegação menu */
+
 .menu {
 	margin-top: -20px;
 	background-color: #F08080;
 }
 
-/* menu nav header */
 nav ul {
 	display: flex;
 	flex-flow: column wrap;
@@ -48,11 +47,21 @@ nav ul li a {
 	padding: 5px;
 	transition: 0.6s;
 	border-radius: 4px;
-	border: 2px solid #F08080;
+	border: 2px solid #F08080
 }
 
 nav ul li a:hover {
 	background-color: white;
+}
+
+/* parágrafo de descrição livro */
+p.descricao {
+	text-align: center;
+	font-family: arial, georgia, sans-serif, serif;
+	font-size: 1.3em;
+	background-color: #d0d0d0;
+	padding: 10px;
+	letter-spacing: 2px;
 }
 
 /* estilo do númro de quantidade */
@@ -63,24 +72,21 @@ nav ul li a:hover {
 	padding: 5px;
 }
 
-.area p {
-	font-family: arial, sans-serif, georgia, serif;
-	font-size: 1.3em;
-}
-
-/* formulario */
-.form {
+.livro_tabela {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: row;
 	width: 100%;
+	border-collapse: collapse;
+	justify-content: center;
+	margin-bottom: 10px;
 }
 
-.form input {
-	background-color: #A36464;
-	padding: 12px;
-	border: 2px solid black;
-	border-radius: 4px;
-	color: white;
+tr, td {
+	background-color: tomato;
+	padding: 8px;
+	border: 2px dashed black;
+	font-family: arial, serif, georgia;
+	font-size: 1.1em;
 }
 
 /* rodape */
@@ -92,15 +98,24 @@ nav ul li a:hover {
 	font-family: arial, georgia, serif;
 }
 
-/* para resoluções com no minimo 730px (Telas maiores Desktop) */
-@media screen and (min-width: 730px) {
-
-/* area principal; corpo*/
-.area {
+/* formulario */
+.form {
 	display: flex;
-	flex-flow: row wrap;
+	flex-flow: column wrap;
 	width: 100%;
 }
+
+.form input {
+	background-color: #A36464;
+	padding: 15px;
+	border: 2px solid black;
+	border-radius: 4px;
+	color: white;
+	margin: 25px;
+}
+
+/* para resoluções com no minimo 730px (Telas maiores Desktop) */
+@media screen and (min-width: 730px) {
 
 /* header classe menu*/
 .menu {
@@ -108,7 +123,6 @@ nav ul li a:hover {
 	background-color: #F08080;
 }
 
-/* menu de navegação nav */
 nav ul {
 	display: flex;
 	flex-flow: row wrap;
@@ -150,10 +164,11 @@ nav ul li a {
 
 .form input {
 	background-color: #A36464;
-	padding: 12px;
+	padding: 18px;
 	border: 2px solid black;
 	border-radius: 4px;
 	color: white;
-}	
+	margin: 25px;
+}
 
 }
