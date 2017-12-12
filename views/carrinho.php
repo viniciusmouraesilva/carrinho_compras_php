@@ -31,6 +31,10 @@
 		</nav>
 	</header>
 
+	<?php if($mensagem) : ?>
+			<p class="carrinho_vazio"><?=$mensagem?><p>
+	<?php endif; ?>
+
 	<?php if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)): ?>
 		
 		<!-- exibição dos livros no carrinho -->

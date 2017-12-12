@@ -1,4 +1,7 @@
 <?php
+/* mensagm para quantidade inválida */
+
+$mensagem = '';
 
 if(array_key_exists('carrinho',$_SESSION) && array_key_exists('qtd',$_SESSION)) {
 
@@ -145,7 +148,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST' && array_key_exists('adicionar',$_POST))
 
 		}
 	}catch(Exception $ex) {
-		print $ex->getMessage();
+		$mensagem = $ex->getMessage();
 	}
 
 }

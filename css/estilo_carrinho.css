@@ -8,10 +8,12 @@ body {
 	font-family: arial, sans-serif, georgia;
 }
 
+/* para não exibir o rodapé em cima do corpo*/
 .corpo {
 	height: 70vh;
 }
 
+/* paragráfo do carrinho vazio */
 p.carrinho_vazio {
 	margin: 8px;
 	font-family: arial, sans-serif, georgia, serif;
